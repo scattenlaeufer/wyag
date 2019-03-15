@@ -8,7 +8,7 @@ import sys
 import zlib
 
 argparser = argparse.ArgumentParser(description="My stupid content tracker")
-argsubparsers = argparser.add_subparsers(title="Commands", dest="commands")
+argsubparsers = argparser.add_subparsers(title="Commands", dest="command")
 argsubparsers.required = True
 argsp = argsubparsers.add_parser("init", help="Initialize a new, empty erpository.")
 argsp.add_argument(
@@ -85,7 +85,7 @@ class GitRepository(object):
 def repo_create(path):
     """Create a new repository at path."""
 
-    repo = GitRespository(path, True)
+    repo = GitRepository(path, True)
 
     # First, we make sure the path either doesn't exist or is an empty dir
 
@@ -122,10 +122,10 @@ def repo_create(path):
 def repo_default_config():
     ret = configparser.ConfigParser()
 
-    ret.add_section('core')
-    ret.set('core', 'repositoryformatversion', '0')
-    ret.set('core', 'filemode', 'false')
-    ret.set('core', 'bare', 'fales')
+    ret.add_section("core")
+    ret.set("core", "repositoryformatversion", "0")
+    ret.set("core", "filemode", "false")
+    ret.set("core", "bare", "false")
 
     return ret
 
