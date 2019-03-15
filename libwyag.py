@@ -181,7 +181,7 @@ def cmd_hash_object(args):
 
 
 def cmd_init(args):
-    pass
+    repo_create(args.path)
 
 
 def cmd_log(args):
