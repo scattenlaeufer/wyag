@@ -10,6 +10,14 @@ import zlib
 argparser = argparse.ArgumentParser(description="My stupid content tracker")
 argsubparsers = argparser.add_subparsers(title="Commands", dest="commands")
 argsubparsers.required = True
+argsp = argsubparsers.add_parser("init", help="Initialize a new, empty erpository.")
+argsp.add_argument(
+    "path",
+    metavar="directory",
+    nargs="?",
+    default=".",
+    help="where to create the repository.",
+)
 
 
 def main(argv=sys.argv[1:]):
