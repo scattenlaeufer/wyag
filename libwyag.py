@@ -131,7 +131,7 @@ def repo_default_config():
 
 
 def repo_find(path=".", required=True):
-    path=os.path.realpath(path)
+    path = os.path.realpath(path)
 
     if os.path.isdir(os.path.join(path, ".git")):
         return GitRepository(path)
@@ -153,7 +153,9 @@ def repo_path(repo, *path):
 
 
 def repo_file(repo, *path, mkdir=False):
-    """Same as reo_path, but create direname(*path) if absent. For example repo_file(r, \"refs\", \"remotes\", \"origin\", \"HEAD\") will create .git/refs/remotes/origin."""
+    """Same as reo_path, but create direname(*path) if absent. For example
+        repo_file(r, \"refs\", \"remotes\", \"origin\", \"HEAD\") will create
+        .git/refs/remotes/origin."""
 
     if repo_dir(repo, *path[:-1], mkdir=mkdir):
         return repo_path(repo, *path)
